@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-texto="areas.pageTitle">Áreas da Feira - ExpoCEI | Exposição Municipal de Ciências, Engenharia e Inovação</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                },
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#01326A',
+                            blue: '#01326A',
+                            green: '#027B38',
+                            lime: '#027B38',
+                            orange: '#F58402'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .header-glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .header-glass.scrolled {
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            box-shadow: 0 4px 20px -5px rgba(1, 50, 106, 0.08);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link.active {
+            color: #01326A;
+            font-weight: 700;
+            background-color: rgba(1, 50, 106, 0.08);
+        }
+
+        .bg-grid-pattern {
+            background-size: 36px 36px;
+            background-image: radial-gradient(circle, rgba(1, 50, 106, 0.08) 1px, transparent 1px);
+        }
+
+        .hamburger-line {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .menu-open .line-1 {
+            transform: translateY(5px) rotate(45deg);
+        }
+
+        .menu-open .line-2 {
+            opacity: 0;
+        }
+
+        .menu-open .line-3 {
+            transform: translateY(-5px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-brand-blue/20 selection:text-brand-blue">
+
+    <!-- CABEÇALHO ExpoCEI -->
+    <header id="main-header" class="header-glass sticky top-0 z-50 w-full bg-white/90 border-b border-slate-200/80 py-3.5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between gap-4">
+                
+                <a href="../index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-blue/50 rounded-xl p-1">
+                    <img 
+                        src="../logo.jpeg" 
+                        alt="Logo ExpoCEI" 
+                        class="h-10 sm:h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                    >
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-base sm:text-lg tracking-tight text-brand-navy leading-tight group-hover:text-brand-orange transition-colors" data-texto="global.sigla">
+                            ExpoCEI
+                        </span>
+                        <span class="text-[10px] sm:text-xs text-brand-blue font-semibold leading-none hidden sm:block" data-texto="global.nome">
+                            Exposição Municipal de Ciências, Engenharia e Inovação
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70">
+                    <a href="../index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inicio">
+                        Início
+                    </a>
+                    <a href="../sobre/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.sobre">
+                        Sobre
+                    </a>
+                    <a href="index.html" class="nav-link active px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors" data-texto="nav.areasFeira">
+                        Áreas da Feira
+                    </a>
+                    <a href="../inscricoes/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inscricoes">
+                        Inscrições
+                    </a>
+                    <a href="../regulamento/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.regulamento">
+                        Regulamento
+                    </a>
+                    <a href="../programacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.programacao">
+                        Programação
+                    </a>
+                    <a href="../premiacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.premiacao">
+                        Premiação
+                    </a>
+                    <a href="../contato/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.contato">
+                        Contato
+                    </a>
+                </nav>
+
+                <div class="flex items-center gap-2">
+                    <button 
+                        id="mobile-menu-btn" 
+                        onclick="toggleMobileMenu()" 
+                        type="button" 
+                        aria-label="Menu Principal" 
+                        class="xl:hidden p-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue flex flex-col justify-center items-center gap-1 w-10 h-10 transition-colors"
+                    >
+                        <span class="hamburger-line line-1 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-2 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-3 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE SLIDE-OVER -->
+    <div id="mobile-overlay" onclick="closeMobileMenu()" class="fixed inset-0 bg-brand-navy/40 backdrop-blur-sm z-50 opacity-0 invisible transition-all duration-300 xl:hidden"></div>
+
+    <aside id="mobile-drawer" class="fixed top-0 right-0 h-full w-80 bg-white border-l border-slate-200 z-50 transform translate-x-full transition-transform duration-300 ease-in-out xl:hidden flex flex-col justify-between p-6 shadow-2xl">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div class="flex items-center gap-2">
+                    <img src="../logo.jpeg" alt="ExpoCEI" class="h-7 w-auto rounded">
+                    <span class="font-bold text-sm tracking-tight text-brand-navy" data-texto="global.sigla">ExpoCEI</span>
+                </div>
+                <button onclick="closeMobileMenu()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <nav class="flex flex-col space-y-1.5">
+                <a href="../index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inicio">Início</a>
+                <a href="../sobre/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.sobre">Sobre</a>
+                <a href="index.html" class="px-3.5 py-2.5 text-sm font-bold text-brand-blue bg-brand-blue/10 rounded-xl" data-texto="nav.areasFeira">Áreas da Feira</a>
+                <a href="../inscricoes/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inscricoes">Inscrições</a>
+                <a href="../regulamento/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.regulamento">Regulamento</a>
+                <a href="../programacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.programacao">Programação</a>
+                <a href="../premiacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.premiacao">Premiação</a>
+                <a href="../contato/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.contato">Contato</a>
+            </nav>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 text-center font-medium" data-texto="global.mobileFooter">
+            ExpoCEI • Exposição Municipal de Ciências, Engenharia e Inovação
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow relative overflow-hidden bg-grid-pattern py-12 sm:py-16">
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <!-- HEADER DA PÁGINA -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-slate-200 pb-10">
+                <div class="lg:col-span-8 text-left space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Categorias Temáticas</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-brand-navy tracking-tight" data-texto="areas.titulo">
+                        Áreas da ExpoCEI
+                    </h1>
+                    <p class="text-lg font-bold text-slate-700" data-texto="areas.subtitulo">
+                        Conheça as áreas temáticas da Exposição Municipal de Ciências, Engenharia e Inovação.
+                    </p>
+                    <p class="text-sm text-slate-600 max-w-2xl leading-relaxed" data-texto="areas.orientacao">
+                        Os projetos devem ser inscritos na área mais compatível com seu tema de pesquisa. Cada área reúne trabalhos com objetivos, métodos e abordagens semelhantes.
+                    </p>
+                </div>
+
+                <!-- SELO DESTAQUE DIREITO -->
+                <div class="lg:col-span-4 flex justify-center lg:justify-end">
+                    <div class="bg-gradient-to-br from-brand-blue/5 via-brand-green/5 to-brand-orange/5 border border-slate-200 rounded-3xl p-6 text-center shadow-sm relative overflow-hidden max-w-xs w-full">
+                        <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-brand-orange/10 rounded-full blur-xl"></div>
+                        <i class="fa-solid fa-atom text-4xl text-brand-blue mb-3"></i>
+                        <p class="text-xs font-extrabold text-brand-navy uppercase tracking-wider mb-1">Diferentes Conhecimentos</p>
+                        <p class="text-sm font-semibold text-brand-orange">Um mesmo propósito.</p>
+                        <p class="text-[11px] text-slate-500 italic mt-3 border-t border-slate-200/60 pt-2">Ciência, ideias e soluções para um futuro melhor!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRID DE CARDS COM AS 14 ÁREAS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+
+                <!-- 1. BCMM (Verde) -->
+                <div class="bg-emerald-50/50 border border-emerald-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-dna"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Biologia Celular e Molecular, Microbiologia <span class="text-emerald-700 font-extrabold">(BCMM)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Reúne pesquisas sobre células, microrganismos e processos biológicos em nível celular e molecular. Inclui estudos com bactérias, fungos, genética, biologia molecular, culturas celulares e aplicações biotecnológicas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. BIOQ (Azul) -->
+                <div class="bg-sky-50/50 border border-sky-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-sky-600 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-flask-vial"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Bioquímica e Química <span class="text-sky-700 font-extrabold">(BIOQ)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Abrange investigações sobre substâncias, materiais, reações químicas e processos bioquímicos. Inclui análises químicas, desenvolvimento de produtos, química de alimentos, compostos naturais, síntese, propriedades da matéria e aplicações laboratoriais.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. CA (Verde) -->
+                <div class="bg-emerald-50/50 border border-emerald-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Ciências Ambientais <span class="text-emerald-700 font-extrabold">(CA)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Contempla estudos relacionados ao meio ambiente, conservação dos recursos naturais e impactos das atividades humanas. Podem fazer parte desta área pesquisas sobre água, solo, resíduos, poluição, clima, sustentabilidade, biodiversidade e educação ambiental.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. CAP (Laranja) -->
+                <div class="bg-amber-50/50 border border-amber-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Ciências Animais e de Plantas <span class="text-amber-700 font-extrabold">(CAP)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Reúne pesquisas sobre organismos animais e vegetais, incluindo desenvolvimento, comportamento, reprodução, alimentação, cultivo, fisiologia, melhoramento, manejo e relações entre os seres vivos e o ambiente.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. CC (Azul) -->
+                <div class="bg-sky-50/50 border border-sky-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-sky-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Ciências da Computação <span class="text-sky-700 font-extrabold">(CC)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Engloba projetos relacionados à computação e ao desenvolvimento de soluções digitais. Inclui programação, inteligência artificial, aplicativos, sistemas, bancos de dados, segurança da informação, automação por software, processamento de dados e tecnologias computacionais.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 6. CTMFA (Laranja) -->
+                <div class="bg-amber-50/50 border border-amber-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-600 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Ciências da Terra, Matemática, Física e Astronomia <span class="text-amber-700 font-extrabold">(CTMFA)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Abrange investigações sobre fenômenos físicos, modelos matemáticos, estruturas e processos da Terra e do Universo. Inclui matemática aplicada, física, geologia, meteorologia, geografia física, astronomia e estudos envolvendo medições, modelagem e experimentação.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 7. CS (Lilás/Roxo) -->
+                <div class="bg-indigo-50/50 border border-indigo-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Ciências Sociais <span class="text-indigo-700 font-extrabold">(CS)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Reúne pesquisas voltadas à compreensão da sociedade, de grupos sociais, comportamentos, relações humanas e fenômenos econômicos, culturais e comunitários. Pode incluir estudos por meio de questionários, entrevistas, levantamentos e análise de dados sociais.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 8. EDUH (Verde) -->
+                <div class="bg-emerald-50/50 border border-emerald-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Educação e Humanidades <span class="text-emerald-700 font-extrabold">(EDUH)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Engloba investigações sobre educação, ensino, aprendizagem, linguagem, cultura, história, artes, filosofia e outros aspectos da experiência humana. Inclui práticas pedagógicas, metodologias de ensino, inclusão, memória, patrimônio e produção cultural.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 9. EAMB (Verde) -->
+                <div class="bg-emerald-50/50 border border-emerald-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-faucet-drip"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Engenharia Ambiental e Sanitária <span class="text-emerald-700 font-extrabold">(EAMB)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Abrange o desenvolvimento de tecnologias e soluções de engenharia para problemas ambientais e sanitários. Inclui tratamento de água e efluentes, gerenciamento de resíduos, saneamento, controle da poluição, reaproveitamento de materiais e tecnologias sustentáveis.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 10. EMAT (Azul) -->
+                <div class="bg-sky-50/50 border border-sky-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-sky-600 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Engenharia e Ciências dos Materiais <span class="text-sky-700 font-extrabold">(EMAT)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Reúne projetos relacionados ao desenvolvimento, estudo, caracterização e aplicação de materiais. Podem ser investigados metais, polímeros, cerâmicas, compósitos, biomateriais, materiais reciclados e novos materiais com propriedades específicas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 11. EEL (Laranja) -->
+                <div class="bg-amber-50/50 border border-amber-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Engenharia Elétrica <span class="text-amber-700 font-extrabold">(EEL)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Contempla projetos relacionados à geração, distribuição, controle, conversão e utilização da energia elétrica. Inclui circuitos elétricos, eficiência energética, energias renováveis, sistemas de potência, motores e soluções de eletrificação.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 12. ETRO (Lilás/Roxo) -->
+                <div class="bg-indigo-50/50 border border-indigo-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Engenharia Eletrônica <span class="text-indigo-700 font-extrabold">(ETRO)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Abrange projetos envolvendo componentes e sistemas eletrônicos, sensores, microcontroladores, dispositivos inteligentes, comunicação, instrumentação, robótica e automação eletrônica.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 13. EMECA (Azul) -->
+                <div class="bg-sky-50/50 border border-sky-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-sky-600 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Engenharia Mecânica <span class="text-sky-700 font-extrabold">(EMECA)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Reúne projetos que envolvem máquinas, mecanismos, movimento, forças, energia e processos de fabricação. Inclui desenvolvimento de protótipos, estruturas mecânicas, sistemas térmicos, mecanismos, máquinas e soluções de engenharia aplicadas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 14. SAU (Rosa/Vermelho) -->
+                <div class="bg-rose-50/50 border border-rose-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col sm:flex-row items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500 text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                            Ciências da Saúde <span class="text-rose-700 font-extrabold">(SAU)</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Contempla pesquisas relacionadas à promoção da saúde, prevenção de doenças, qualidade de vida e compreensão de aspectos associados à saúde humana. Inclui estudos sobre alimentação, hábitos de vida, saúde coletiva, epidemiologia, tecnologias assistivas e educação em saúde.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COMO ESCOLHER SUA ÁREA? -->
+            <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+                <div class="border-b border-slate-100 pb-4">
+                    <h2 class="text-2xl font-extrabold text-brand-navy tracking-tight">
+                        Como escolher sua área?
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="w-9 h-9 rounded-full bg-brand-navy text-white font-extrabold flex items-center justify-center shrink-0 text-sm">
+                            1
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="text-sm font-bold text-slate-900">Observe o foco principal</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Identifique qual é o pilar central ou o problema principal que o seu projeto busca resolver.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="w-9 h-9 rounded-full bg-brand-green text-white font-extrabold flex items-center justify-center shrink-0 text-sm">
+                            2
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="text-sm font-bold text-slate-900">Considere os objetivos e métodos</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Analise as ferramentas, testes e metodologias utilizadas para escolher a categoria ideal.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="w-9 h-9 rounded-full bg-brand-orange text-white font-extrabold flex items-center justify-center shrink-0 text-sm">
+                            3
+                        </div>
+                        <div class="space-y-1">
+                            <h4 class="text-sm font-bold text-slate-900">Consulte o regulamento</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Em caso de dúvida entre duas áreas, verifique o regulamento oficial ou entre em contato com a organização.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ CLEAN -->
+    <footer class="border-t border-slate-200 py-6 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 font-medium">
+            <p data-texto="global.footer">© 2027 ExpoCEI — Exposição Municipal de Ciências, Engenharia e Inovação. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script>
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('invisible', 'opacity-0');
+                overlay.classList.add('opacity-100');
+                btn.classList.add('menu-open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            drawer.classList.add('translate-x-full');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'invisible');
+            btn.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <script src="../textos.js"></script>
+    <script src="../carregar-textos.js"></script>
+</body>
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-texto="regulamento.pageTitle">Regulamento - ExpoCEI | Exposição Municipal de Ciências, Engenharia e Inovação</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                },
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#01326A',
+                            blue: '#01326A',
+                            green: '#027B38',
+                            lime: '#027B38',
+                            orange: '#F58402'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .header-glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .header-glass.scrolled {
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            box-shadow: 0 4px 20px -5px rgba(1, 50, 106, 0.08);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link.active {
+            color: #01326A;
+            font-weight: 700;
+            background-color: rgba(1, 50, 106, 0.08);
+        }
+
+        .bg-grid-pattern {
+            background-size: 36px 36px;
+            background-image: radial-gradient(circle, rgba(1, 50, 106, 0.08) 1px, transparent 1px);
+        }
+
+        .hamburger-line {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .menu-open .line-1 {
+            transform: translateY(5px) rotate(45deg);
+        }
+
+        .menu-open .line-2 {
+            opacity: 0;
+        }
+
+        .menu-open .line-3 {
+            transform: translateY(-5px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-brand-blue/20 selection:text-brand-blue">
+
+    <!-- CABEÇALHO ExpoCEI -->
+    <header id="main-header" class="header-glass sticky top-0 z-50 w-full bg-white/90 border-b border-slate-200/80 py-3.5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between gap-4">
+                
+                <a href="../index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-blue/50 rounded-xl p-1">
+                    <img 
+                        src="../logo.jpeg" 
+                        alt="Logo ExpoCEI" 
+                        class="h-10 sm:h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                    >
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-base sm:text-lg tracking-tight text-brand-navy leading-tight group-hover:text-brand-orange transition-colors" data-texto="global.sigla">
+                            ExpoCEI
+                        </span>
+                        <span class="text-[10px] sm:text-xs text-brand-blue font-semibold leading-none hidden sm:block" data-texto="global.nome">
+                            Exposição Municipal de Ciências, Engenharia e Inovação
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70">
+                    <a href="../index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inicio">
+                        Início
+                    </a>
+                    <a href="../sobre/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.sobre">
+                        Sobre
+                    </a>
+                    <a href="../areas/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.areasFeira">
+                        Áreas da Feira
+                    </a>
+                    <a href="../inscricoes/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inscricoes">
+                        Inscrições
+                    </a>
+                    <a href="index.html" class="nav-link active px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors" data-texto="nav.regulamento">
+                        Regulamento
+                    </a>
+                    <a href="../programacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.programacao">
+                        Programação
+                    </a>
+                    <a href="../premiacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.premiacao">
+                        Premiação
+                    </a>
+                    <a href="../contato/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.contato">
+                        Contato
+                    </a>
+                </nav>
+
+                <div class="flex items-center gap-2">
+                    <button 
+                        id="mobile-menu-btn" 
+                        onclick="toggleMobileMenu()" 
+                        type="button" 
+                        aria-label="Menu Principal" 
+                        class="xl:hidden p-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue flex flex-col justify-center items-center gap-1 w-10 h-10 transition-colors"
+                    >
+                        <span class="hamburger-line line-1 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-2 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-3 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE SLIDE-OVER -->
+    <div id="mobile-overlay" onclick="closeMobileMenu()" class="fixed inset-0 bg-brand-navy/40 backdrop-blur-sm z-50 opacity-0 invisible transition-all duration-300 xl:hidden"></div>
+
+    <aside id="mobile-drawer" class="fixed top-0 right-0 h-full w-80 bg-white border-l border-slate-200 z-50 transform translate-x-full transition-transform duration-300 ease-in-out xl:hidden flex flex-col justify-between p-6 shadow-2xl">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div class="flex items-center gap-2">
+                    <img src="../logo.jpeg" alt="ExpoCEI" class="h-7 w-auto rounded">
+                    <span class="font-bold text-sm tracking-tight text-brand-navy" data-texto="global.sigla">ExpoCEI</span>
+                </div>
+                <button onclick="closeMobileMenu()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <nav class="flex flex-col space-y-1.5">
+                <a href="../index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inicio">Início</a>
+                <a href="../sobre/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.sobre">Sobre</a>
+                <a href="../areas/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.areasFeira">Áreas da Feira</a>
+                <a href="../inscricoes/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inscricoes">Inscrições</a>
+                <a href="index.html" class="px-3.5 py-2.5 text-sm font-bold text-brand-blue bg-brand-blue/10 rounded-xl" data-texto="nav.regulamento">Regulamento</a>
+                <a href="../programacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.programacao">Programação</a>
+                <a href="../premiacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.premiacao">Premiação</a>
+                <a href="../contato/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.contato">Contato</a>
+            </nav>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 text-center font-medium" data-texto="global.mobileFooter">
+            ExpoCEI • Exposição Municipal de Ciências, Engenharia e Inovação
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow relative overflow-hidden bg-grid-pattern py-12 sm:py-16">
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Cabeçalho da Página -->
+            <div class="mb-8 text-center sm:text-left flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+                <div>
+                    <span class="inline-block px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-brand-blue bg-brand-blue/10 rounded-full mb-3">
+                        Documento Oficial
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold text-brand-navy tracking-tight" data-texto="regulamento.titulo">
+                        Regulamento Geral
+                    </h1>
+                    <p class="mt-2 text-base text-slate-600 max-w-3xl" data-texto="regulamento.subtitulo">
+                        Confira as diretrizes, elegibilidade, normas de submissão, critérios de avaliação e conduta da ExpoCEI.
+                    </p>
+                </div>
+
+                <!-- Botão de Download -->
+                <div class="flex-shrink-0">
+                    <a 
+                        href="REGULAMENTO EXPOCEI.pdf" 
+                        download="REGULAMENTO EXPOCEI.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-navy hover:bg-brand-orange text-white text-sm font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 w-full sm:w-auto"
+                    >
+                        <i class="fa-solid fa-file-arrow-down text-base"></i>
+                        <span>Baixar Regulamento em PDF</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- CONTAINER DO TEXTO REGULAMENTO -->
+            <div class="bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 sm:p-10 shadow-sm">
+                <div class="prose max-w-none font-sans text-slate-700 text-sm sm:text-base leading-relaxed space-y-6">
+
+                    <div class="border-b border-slate-200 pb-4 text-center sm:text-left">
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-brand-navy tracking-tight">
+                            REGULAMENTO GERAL DA EXPOSIÇÃO MUNICIPAL DE CIÊNCIAS, ENGENHARIA E INOVAÇÃO — EXPOCEI
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-3 font-medium">
+                            <strong>PREÂMBULO.</strong> A Comissão Organizadora da Exposição Municipal de Ciências, Engenharia e Inovação – EXPOCEI, no exercício de suas atribuições técnico-organizacionais, estabelece o presente Regulamento Geral, destinado a disciplinar o regime de inscrição, habilitação, revisão científica, seleção, exposição presencial, avaliação, premiação, proteção de dados e responsabilidade dos participantes[cite: 10]. Este instrumento vincula estudantes, orientadores, coorientadores, responsáveis legais, avaliadores, voluntários e demais agentes que participem da edição, sem prejuízo dos atos complementares regularmente publicados no site oficial.
+                        </p>
+                    </div>
+
+                    <!-- PARTE I -->
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">PARTE I — DO REGIME GERAL DA EXPOCEI</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO I — NATUREZA, OBJETO E EFICÁCIA NORMATIVA</h4>
+                        <p><strong>Art. 1º.</strong> A EXPOCEI constitui mostra científica municipal, de realização presencial, destinada à exposição, análise e difusão de projetos de pesquisa científica, tecnológica, de engenharia e inovação desenvolvidos por estudantes da educação básica e/ou profissional técnica abrangidos pelo edital da edição.</p>
+                        <p><strong>Art. 2º.</strong> A edição será realizada em local, datas e horários divulgados no site oficial, integrando este Regulamento o cronograma anual, o manual do expositor, as orientações de segurança, os formulários, os termos de participação e os comunicados expedidos pela Comissão Organizadora.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>Parágrafo único.</em> Na hipótese de divergência entre documento geral e ato específico da edição, prevalecerá o ato mais recente e especial, desde que publicado antes do término da fase a que se refere e que não produza efeito retroativo desfavorável sem fundamento de segurança, integridade científica ou obrigação legal.</p>
+                        <p><strong>Art. 3º.</strong> A finalidade institucional da EXPOCEI compreende o estímulo à iniciação científica, à investigação orientada por evidências, ao desenvolvimento de soluções de engenharia, à cultura de inovação, à comunicação científica e à formação ética dos estudantes pesquisadores.</p>
+                        <p><strong>Art. 4º.</strong> A inscrição importa adesão integral às regras vigentes, não constituindo, por si só, direito à seleção, à premiação, a credenciamento externo ou a qualquer benefício não expressamente previsto em ato oficial.</p>
+                        <p><strong>Art. 5º.</strong> O endereço eletrônico <strong>contatoexpocei@gmail.com</strong> constitui canal oficial de atendimento, sem prejuízo de outros meios institucionais divulgados no site.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO II — GOVERNANÇA TÉCNICO-CIENTÍFICA</h4>
+                        <p><strong>Art. 6º.</strong> A governança da EXPOCEI será exercida pela Comissão Organizadora, pelo Comitê Científico e de Revisão, pela Comissão de Avaliação e, quando instituída, pela Comissão de Exposição e Segurança, com competências distintas e complementares.</p>
+                        <p><strong>Art. 7º.</strong> Compete à Comissão Organizadora coordenar o calendário, os procedimentos de inscrição e credenciamento, a logística da mostra, as comunicações oficiais, a designação de comissões, a homologação dos resultados e a resolução dos casos operacionais não atribuídos a outro órgão.</p>
+                        <p><strong>Art. 8º.</strong> Compete ao Comitê Científico e de Revisão examinar a admissibilidade técnico-científica dos projetos, sua documentação, autoria, integridade, riscos, conformidade ética e requisitos especiais de pesquisa, podendo emitir diligências, condicionantes, pareceres de adequação ou decisão de inabilitação técnica.</p>
+                        <p><strong>Art. 9º.</strong> Compete à Comissão de Avaliação organizar e executar o julgamento técnico dos projetos habilitados e selecionados, mediante critérios uniformes, gestão de conflito de interesses e registro das avaliações.</p>
+                        <p><strong>Art. 10.</strong> As decisões colegiadas deverão observar impessoalidade, isonomia, motivação suficiente, integridade científica, segurança, proteção de menores e tratamento proporcional das irregularidades.</p>
+                    </div>
+
+                    <!-- PARTE II -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">PARTE II — DA ELEGIBILIDADE E DA AUTORIA ESTUDANTIL</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO III — REQUISITOS DOS ESTUDANTES E DAS EQUIPES</h4>
+                        <p><strong>Art. 11.</strong> A participação ocorrerá exclusivamente por projetos desenvolvidos em dupla ou trio, com 2 (dois) ou 3 (três) estudantes autores, não sendo admitteda inscrição individual.</p>
+                        <p><strong>Art. 12.</strong> Os estudantes deverão estar regularly matriculados em instituição de ensino abrangida pelo território e nível educacional definidos no edital, admitidos o 9º ano do Ensino Fundamental, o Ensino Médio e a Educação Profissional Técnica de Nível Médio, observadas as condições adicionais da edição.</p>
+                        <p><strong>Art. 13.</strong> Para preservação de elegibilidade em programas e credenciamentos científicos externos, o estudante deverá ter, no mínimo, 12 (doze) anos completos antes do início do desenvolvimento do projeto e não ter atingido 20 (vinte) anos em 1º de maio do ano da edição, sem prejuízo de exigência mais específica estabelecida pelo evento destinatário de eventual credencial.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>Parágrafo único.</em> O atendimento aos requisitos da EXPOCEI não garante elegibilidade automática a atividade, premiação ou evento externo, cujas regras próprias prevalecerão para esse fim.</p>
+                        <p><strong>Art. 14.</strong> Cada estudante poderá concorrer com apenas um projeto na mesma edição, ainda que exerça funções distintas em pesquisas diferentes.</p>
+                        <p><strong>Art. 15.</strong> Todos os autores deverão ter contribuído materialmente para a concepção, execução, registro e defesa do projeto; é vedada a inclusão de participante meramente nominal ou a omissão deliberada de autor efetivo.</p>
+                        <p><strong>Art. 16.</strong> Após o encerramento das inscrições, a composição da equipe não poderá ser alterada, salvo hipótese excepcional de força maior, devidamente comprovada, analisada pelo Comitê Científico e de Revisão e compatível com as regras de eventual credenciamento externo.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO IV — ORIENTAÇÃO, COORIENTAÇÃO E RESPONSABILIDADE</h4>
+                        <p><strong>Art. 17.</strong> Todo projeto deverá possuir 1 (um) orientador responsável, maior de 21 (vinte e um) anos e com curso superior concluído, incumbido de acompanhar o processo investigativo, zelar pela segurança, orientar quanto à metodologia e assegurar a observância das normas éticas sem substituir a autoria dos estudantes.</p>
+                        <p><strong>Art. 18.</strong> Será admitida a participação de até 2 (dois) coorientadores, desde que cada um tenha pelo menos 18 (dezoito) anos, Ensino Médio ou Técnico concluído e efetiva participação de apoio ao projeto.</p>
+                        <p><strong>Art. 19.</strong> O orientador, o coorientador e o responsável legal não poderão realizar em nome dos estudantes etapas essenciais de autoria, análise, redação científica ou defesa oral, nem responder à banca em substituição aos autores.</p>
+                        <p><strong>Art. 20.</strong> Participantes menores de idade deverão estar acompanhados, durante a realização presencial, por adulto responsável indicado nos termos da edição, sem prejuízo das regras próprias do local do evento.</p>
+                    </div>
+
+                    <!-- PARTE III -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">PARTE III — DAS ÁREAS DE PESQUISA E DO ENQUADRAMENTO</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO V — ÁREAS, SUBÁREAS E CLASSIFICAÇÃO TEMÁTICA</h4>
+                        <p><strong>Art. 21.</strong> Todo projeto deverá ser inscrito em uma única área principal de pesquisa e em uma subárea compatível com seu objeto predominante, conforme o Anexo I deste Regulamento.</p>
+                        <p><strong>Art. 22.</strong> Constituem áreas oficiais da EXPOCEI:</p>
+                        <ul class="list-disc pl-6 space-y-1 text-xs sm:text-sm">
+                            <li><strong>I -</strong> Biologia Celular e Molecular, Microbiologia (BCMM);</li>
+                            <li><strong>II -</strong> Bioquímica e Química (BIOQ);</li>
+                            <li><strong>III -</strong> Ciências Ambientais (CA);</li>
+                            <li><strong>IV -</strong> Ciências Animais e de Plantas (CAP);</li>
+                            <li><strong>V -</strong> Ciências da Computação (CC);</li>
+                            <li><strong>VI -</strong> Ciências da Terra, Matemática, Física e Astronomia (CTMFA);</li>
+                            <li><strong>VII -</strong> Ciências Sociais (CS);</li>
+                            <li><strong>VIII -</strong> Educação e Humanidades (EDUH);</li>
+                            <li><strong>IX -</strong> Engenharia Ambiental e Sanitária (EAMB);</li>
+                            <li><strong>X -</strong> Engenharia e Ciências dos Materiais (EMAT);</li>
+                            <li><strong>XI -</strong> Engenharia Elétrica (EEL);</li>
+                            <li><strong>XII -</strong> Engenharia Eletrônica (ETRO);</li>
+                            <li><strong>XIII -</strong> Engenharia Mecânica (EMECA);</li>
+                            <li><strong>XIV -</strong> Ciências da Saúde (SAU);</li>
+                        </ul>
+                        <p><strong>Art. 23.</strong> Projetos interdisciplinares deverão ser enquadrados na área em que se concentrem a pergunta principal, a metodologia dominante ou a contribuição técnica central, cabendo ao Comitê Científico e de Revisão promover reenquadramento fundamentado quando necessário à adequada avaliação.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>Parágrafo único.</em> O reenquadramento não altera o mérito do projeto e deverá ser comunicado à equipe antes da fase final de julgamento, sempre que operacionalmente possível.</p>
+                    </div>
+
+                    <!-- PARTE IV -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">PARTE IV — DA INSCRIÇÃO E DA DOCUMENTAÇÃO CIENTÍFICA</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO VI — PROCEDIMENTO DE INSCRIÇÃO</h4>
+                        <p><strong>Art. 24.</strong> A inscrição será realizada exclusivamente por meio do site oficial da EXPOCEI, dentro dos prazos previstos no cronograma anual, não sendo admitida submissão por e-mail, mensagem instantânea ou outro meio não autorizado, salvo contingência formalmente declarada pela Organização.</p>
+                        <p><strong>Art. 25.</strong> A inscrição somente será considerada válida após o preenchimento integral do formulário eletrônico, o envio de todos os documentos obrigatórios, a aceitação dos termos aplicáveis e a confirmação eletrônica de submissão.</p>
+                        <p><strong>Art. 26.</strong> Deverão ser informados, no mínimo, os dados cadastrais dos estudantes, orientador e coorientadores, instituição de ensino, área e subárea, título do projeto, período de desenvolvimento, resumo, plano de pesquisa e demais elementos exigidos no sistema.</p>
+                        <p><strong>Art. 27.</strong> Constitui requisito obrigatório o envio dos termos e formulários disponibilizados no site oficial, devidamente preenchidos e assinados, compreendendo, conforme aplicável:</p>
+                        <ul class="list-disc pl-6 space-y-1 text-xs sm:text-sm">
+                            <li><strong>I -</strong> termo de ciência, responsabilidade, convivência e cumprimento das normas da EXPOCEI;</li>
+                            <li><strong>II -</strong> autorização do responsável legal para participação de estudante menor de idade;</li>
+                            <li><strong>III -</strong> autorização ou instrumento equivalente relativo ao tratamento de dados pessoais e, quando aplicável, uso de imagem e voz;</li>
+                            <li><strong>IV -</strong> declaração de autoria, integridade científica e veracidade das informações;</li>
+                            <li><strong>V -</strong> formulário de revisão científica e segurança;</li>
+                            <li><strong>VI -</strong> formulários complementares exigidos pela natureza da pesquisa, inclusive para participação humana, animais vertebrados, agentes biológicos, tecidos, substâncias ou equipamentos perigosos, instituição de pesquisa regulada, continuidade de projeto ou outras hipóteses de risco.</li>
+                        </ul>
+                        <p><strong>Art. 28.</strong> Documentos incompletos, ilegíveis, sem assinatura exigível, divergentes do cadastro ou enviados após o prazo poderão ensejar diligência ou inabilitação, conforme a natureza do vício e a possibilidade de correção sem violação à isonomia.</p>
+                        <p><strong>Art. 29.</strong> A Organização poderá solicitar documento de identificação, comprovante de matrícula, declaração escolar, autorização institucional, comprovante de vínculo e outros elementos necessários à verificação de elegibilidade, autoria, idade, segurança ou regularidade cadastral.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO VII — PLANO, RESUMO, CADERNO DE CAMPO E RELATÓRIO</h4>
+                        <p><strong>Art. 30.</strong> O Plano de Pesquisa deverá preceder a execução das atividades experimentais ou de campo e apresentar, de maneira coerente, o tema, a justificativa, o problema, hipótese quando aplicável, objetivos, fundamentação, método, variáveis, riscos, cronograma e referências.</p>
+                        <p><strong>Art. 31.</strong> O Resumo deverá sintetizar a pesquisa em parágrafo único, preferencialmente entre 250 (duzentas e cinquenta) e 500 (quinhentas) palavras, contemplando objetivo, procedimentos, dados ou resultados relevantes e conclusões ou aplicações, sem transformar-se em introdução extensa ou revisão bibliográfica.</p>
+                        <p><strong>Art. 32.</strong> O Caderno de Campo é documento obrigatório de rastreabilidade científica e deverá registrar, em ordem cronológica, decisões, testes, dados, falhas, alterações metodológicas, consultas, visitas, entrevistas, reuniões de orientação e demais fatos relevantes à execução da pesquisa.</p>
+                        <p><strong>Art. 33.</strong> O Relatório de Pesquisa deverá apresentar linguagem técnico-científica, clareza, coerência interna e descrição fiel do trabalho efetivamente desenvolvido pelos estudantes, contendo os elementos pré-textuais pertinentes, introdução, fundamentação teórica, metodologia, resultados, discussão, conclusões, referências e, quando cabíveis, apêndices ou anexos.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>Parágrafo único.</em> O relatório poderá ser exigido em arquivo digital previamente à mostra e em via disponível no estande, conforme prazo e forma fixados no cronograma ou manual do expositor.</p>
+                        <p><strong>Art. 34.</strong> A documentação científica deverá refletir apenas a contribuição efetiva da equipe na fase apresentada, distinguindo trabalhos anteriores, atividades de terceiros e apoio externo.</p>
+                    </div>
+
+                    <!-- PARTE V -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">PARTE V — DA INTEGRIDADE, ÉTICA E REVISÃO CIENTÍFICA</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO VIII — AUTORIA, FONTES E USO DE INTELIGÊNCIA ARTIFICIAL</h4>
+                        <p><strong>Art. 35.</strong> A EXPOCEI adota os princípios de honestidade, objetividade, rastreabilidade, transparência, respeito à autoria e fidelidade dos dados como requisitos essenciais de participação.</p>
+                        <p><strong>Art. 36.</strong> Constituem infrações graves de integridade científica, entre outras, o plágio, a fabricação ou falsificação de dados, a manipulação enganosa de imagens, a criação de referências inexistentes, a apropriação indevida de autoria, a omissão intencional de contribuição relevante de terceiro e a apresentação de pesquisa alheia como própria.</p>
+                        <p><strong>Art. 37.</strong> Todo conteúdo de terceiros, inclusive textos, bases de dados, imagens, códigos, modelos, métodos, softwares e material audiovisual, deverá ser adequadamente identificado e referenciado.</p>
+                        <p><strong>Art. 38.</strong> Ferramentas de inteligência artificial poderão ser utilizadas apenas como recurso acessório e declarado, vedada sua utilização para substituir a autoria intelectual dos estudantes, fabricar dados ou resultados, criar referências falsas ou produzir integralmente plano de pesquisa, resumo, relatório, pôster ou apresentação como se fossem de autoria da equipe.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>Parágrafo único.</em> Quando houver uso material de ferramenta de inteligência artificial, a equipe deverá indicar a ferramenta, a finalidade e o procedimento de verificação humana adotado, podendo o Comitê solicitar evidências do processo de elaboração.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO IX — PESQUISAS SUJEITAS A CONTROLE ESPECIAL</h4>
+                        <p><strong>Art. 39.</strong> Projetos envolvendo participantes humanos, dados pessoais sensíveis, animais vertebrados, agentes biológicos potencialmente perigosos, microrganismos, material biológico, tecidos, fluidos corporais, substâncias químicas, dispositivos de risco, radiação, armas, atividades controladas ou instalações laboratoriais deverão ser submetidos à revisão específica antes da etapa de exposição.</p>
+                        <p><strong>Art. 40.</strong> Pesquisas com participantes humanos deverão prever análise prévia de riscos, consentimento informado e, quando houver menores de idade como participantes da pesquisa, assentimento compatível com a idade e autorização do responsável legal, além das aprovações institucionais ou éticas legalmente exigíveis.</p>
+                        <p><strong>Art. 41.</strong> É vedado realizar cultivo de agentes biológicos potencialmente perigosos em ambiente residencial, bem como desenvolver atividade que exceda o nível de biossegurança autorizado para a instalação e para a formação dos responsáveis envolvidos.</p>
+                        <p><strong>Art. 42.</strong> Pesquisas com animais deverão respeitar o bem-estar animal, a legislação aplicável e as autorizações institucionais pertinentes, sendo vedados procedimentos de sofrimento evitável ou de risco desproporcional ao objetivo educacional e científico.</p>
+                        <p><strong>Art. 43.</strong> Pesquisas com substâncias, equipamentos ou atividades perigosas deverão apresentar avaliação de risco, supervisão adequada, equipamentos de proteção e medidas de prevenção compatíveis com o procedimento.</p>
+                        <p><strong>Art. 44.</strong> A ausência de autorização prévia quando exigível constitui vício não sanável após a execução da atividade de risco e poderá acarretar inabilitação ou desclassificação do projeto.</p>
+                    </div>
+
+                    <!-- PARTE VI -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">PARTE VI — DA SELEÇÃO DOS PROJETOS FINALISTAS</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO X — HABILITAÇÃO E SELEÇÃO TÉCNICO-CIENTÍFICA</h4>
+                        <p><strong>Art. 45.</strong> A seleção para a mostra presencial será precedida de habilitação documental e revisão técnico-científica, etapas autônomas e sucessivas.</p>
+                        <p><strong>Art. 46.</strong> Na habilitação documental serão verificados, entre outros, prazo, elegibilidade dos estudantes, composição da equipe, instituição, documentos obrigatórios, assinaturas, área de pesquisa e consistência cadastral.</p>
+                        <p><strong>Art. 47.</strong> Na seleção técnico-científica serão considerados a definição do problema, relevância, fundamentação, adequação metodológica, rigor, originalidade, inovação, qualidade dos dados, potencial de aplicação, clareza documental e evidências de autoria estudantil.</p>
+                        <p><strong>Art. 48.</strong> A edição selecionará 150 (cento e cinquenta) projetos finalistas, desde que exista número suficiente de inscrições tecnicamente habilitadas.</p>
+                        <p><strong>Art. 49.</strong> Será assegurada a seleção de, no mínimo, 6 (seis) projetos por área de pesquisa, sempre que houver seis ou mais projetos habilitados com mérito técnico mínimo na respectiva área.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>Parágrafo único.</em> As vagas remanescentes após a reserva mínima por área serão distribuídas entre as áreas segundo a quantidade de projetos habilitados, a qualidade técnica das submissões e a necessidade de representação equilibrada, sem prejuízo da classificação individual.</p>
+                        <p><strong>Art. 50.</strong> Se uma área não alcançar seis projetos aptos, as vagas não preenchidas poderão ser redistribuídas às demais áreas, vedada a aprovação de projeto tecnicamente insuficiente apenas para completar quantitativo.</p>
+                        <p><strong>Art. 51.</strong> A Comissão Organizadora poderá formar cadastro de suplência por área para recomposição de vagas decorrentes de desistência, irregularidade documental ou impedimento superveniente.</p>
+
+                        <h5 class="font-bold text-brand-navy pt-2">Seção I — Resultado da seleção e comunicação</h5>
+                        <p><strong>Art. 52.</strong> O resultado individual da seleção será comunicado ao endereço eletrônico cadastrado no sistema, cabendo à equipe e ao orientador manterem e-mail válido e acompanhar caixa de entrada, spam e demais filtros.</p>
+                        <p><strong>Art. 53.</strong> O projeto selecionado receberá comunicação formal contendo, conforme o caso, Carta de Aceite, parecer ou manifestação do Comitê Científico e orientações sobre confirmação, documentação complementar, credenciamento, exposição e demais etapas da mostra presencial.</p>
+                        <p><strong>Art. 54.</strong> Por política de minimização e proteção de dados, a EXPOCEI poderá deixar de publicar no site listas nominais de estudantes, especialmente menores de idade, e comunicar o resultado diretamente aos titulares e responsáveis cadastrados.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>Parágrafo único.</em> A política prevista neste artigo fundamenta-se nos princípios de finalidade, adequação, necessidade, segurança e prevenção da Lei nº 13.709/2018, no melhor interesse de crianças e adolescentes previsto no art. 14 da mesma Lei e na proteção da imagem, identidade e integridade moral assegurada pelo art. 17 da Lei nº 8.069/1990.</p>
+                        <p><strong>Art. 55.</strong> Quando houver publicação de resultados no site, poderão ser utilizados número de protocolo, código do projeto, área, instituição ou outras informações compatíveis com a finalidade pública da divulgação e com a política de privacidade da edição.</p>
+
+                        <h5 class="font-bold text-brand-navy pt-2">Seção II — Reconsideração administrativa</h5>
+                        <p><strong>Art. 56.</strong> Será admitido pedido de reconsideração exclusivamente para alegação de erro material, falha de sistema, documento tempestivamente enviado e não processado, impedimento de avaliador ou violação objetiva do procedimento, no prazo e pelo canal definidos no comunicado de resultado.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>Parágrafo único.</em> O pedido de reconsideração não constitui nova oportunidade para complementar material científico após o prazo, nem permite substituição da apreciação técnica por mera discordância com a nota ou o parecer.</p>
+                    </div>
+
+                    <!-- PARTE VII -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">PARTE VII — DA MOSTRA PRESENCIAL E DA EXPOSIÇÃO</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO XI — CREDENCIAMENTO, ESTANDE E PERMANÊNCIA</h4>
+                        <p><strong>Art. 57.</strong> A participação presencial do projeto selecionado dependerá da confirmação da equipe, do atendimento das diligências do Comitê Científico e do credenciamento no local e horário divulgados pela Organização.</p>
+                        <p><strong>Art. 58.</strong> Cada projeto receberá espaço de exposição identificado, cuja estrutura, dimensões, disponibilidade de energia e requisitos de montagem serão definidos em Manual do Expositor ou comunicado específico.</p>
+                        <p><strong>Art. 59.</strong> A montagem somente poderá ser considerada concluída após inspeção de segurança quando exigida, ficando vedada a reintrodução de material retirado ou reprovado sem nova autorização.</p>
+                        <p><strong>Art. 60.</strong> O pôster, banner ou display deverá refletir a fase atual do projeto, utilizar linguagem compatível com a comunicação científica e identificar adequadamente os autores e a instituição, observados os limites de dimensão e conteúdo fixados pela Organização.</p>
+                        <p><strong>Art. 61.</strong> Durante os períodos oficiais de exposição e avaliação, o estande deverá permanecer sob responsabilidade dos estudantes autores inscritos, admitidas ausências breves e justificadas conforme orientação da equipe de apoio.</p>
+                        <p><strong>Art. 62.</strong> A defesa científica será realizada pelos estudantes; orientadores, coorientadores, familiares e demais acompanhantes não poderão responder perguntas ou interferir na avaliação.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO XII — SEGURANÇA DA EXPOSIÇÃO</h4>
+                        <p><strong>Art. 63.</strong> É proibida a exposição ou demonstração que gere risco incompatível com ambiente escolar e público, incluindo, sem limitação: organismos vivos quando sujeitos a restrição sanitária; culturas microbiológicas; materiais biológicos não acondicionados; substâncias tóxicas, inflamáveis ou corrosivas; drogas ilícitas; explosivos; armas; chama aberta; gases pressurizados sem autorização; materiais radioativos; baterias abertas; equipamentos com partes móveis ou tensão elétrica exposta; e qualquer item expressamente vedado no Manual de Segurança.</p>
+                        <p><strong>Art. 64.</strong> Espécimes, amostras, protótipos e materiais potencialmente sensíveis somente poderão ser apresentados quando inertes, descontaminados, devidamente protegidos e previamente autorizados, quando aplicável.</p>
+                        <p><strong>Art. 65.</strong> Fotografias, vídeos e representações gráficas poderão substituir demonstrações fisicamente vedadas, desde que preservem privacidade, dignidade, biossegurança e direitos de terceiros.</p>
+                        <p><strong>Art. 66.</strong> A Comissão de Exposição e Segurança poderá determinar retirada, isolamento, desligamento, modificação ou suspensão de qualquer item ou atividade que represente risco, independentemente de aprovação anterior, quando surgir fato novo ou condição insegura.</p>
+                    </div>
+
+                    <!-- PARTE VIII -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">PARTE VIII — DA AVALIAÇÃO FINAL E DA PREMIAÇÃO</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO XIII — CORPO DE AVALIADORES E IMPEDIMENTOS</h4>
+                        <p><strong>Art. 67.</strong> A avaliação final será presencial e conduzida por avaliadores com formação ou experiência compatível com as áreas de pesquisa, designados pela Comissão Organizadora.</p>
+                        <p><strong>Art. 68.</strong> Nenhum avaliador poderá julgar projeto de estudante com quem mantenha relação de parentesco, orientação, coautoria, vínculo profissional direto, interesse econômico ou outra circunstância apta a comprometer a imparcialidade.</p>
+                        <p><strong>Art. 69.</strong> Os avaliadores deverão tratar como confidenciais os materiais não públicos, abster-se de utilizar informações privilegiadas e comunicar impedimento tão logo dele tenham ciência.</p>
+                        <p><strong>Art. 70.</strong> Cada projeto deverá receber número de avaliações independentes suficiente para reduzir distorções e permitir consolidação estatística da nota, conforme matriz de avaliação divulgada para a edição.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO XIV — ELEMENTOS E CRITÉRIOS DE AVALIAÇÃO</h4>
+                        <p><strong>Art. 71.</strong> A avaliação poderá considerar, de forma integrada, o relatório de pesquisa, o resumo, o caderno de campo, o pôster ou display, o protótipo quando existente e a apresentação oral dos estudantes.</p>
+                        <p><strong>Art. 72.</strong> Constituem eixos mínimos de avaliação:</p>
+                        <ul class="list-disc pl-6 space-y-1 text-xs sm:text-sm">
+                            <li><strong>I -</strong> clareza do problema, dos objetivos e da justificativa;</li>
+                            <li><strong>II -</strong> fundamentação científica ou tecnológica e qualidade das referências;</li>
+                            <li><strong>III -</strong> rigor e adequação metodológica;</li>
+                            <li><strong>IV -</strong> qualidade, suficiência e interpretação dos dados ou testes;</li>
+                            <li><strong>V -</strong> originalidade, criatividade e inovação;</li>
+                            <li><strong>VI -</strong> relevância científica, tecnológica, social, ambiental ou educacional;</li>
+                            <li><strong>VII -</strong> domínio conceitual, autonomia e participação efetiva dos estudantes;</li>
+                            <li><strong>VIII -</strong> clareza, objetividade e consistência da apresentação oral;</li>
+                            <li><strong>IX -</strong> coerência entre documentação, resultados apresentados e execução demonstrada;</li>
+                            <li><strong>X -</strong> capacidade de reconhecer limitações, riscos e perspectivas de continuidade.</li>
+                        </ul>
+                        <p><strong>Art. 73.</strong> A matriz de pontuação, os pesos e os critérios de desempate deverão ser publicados antes do início da avaliação final e aplicados de forma uniforme dentro de cada área.</p>
+                        <p><strong>Art. 74.</strong> As notas e pareceres dos avaliadores têm natureza técnico-acadêmica; eventual revisão administrativa ficará restrita a erro de processamento, conflito de interesses ou descumprimento objetivo das regras de julgamento.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO XV — PREMIAÇÃO E CREDENCIAMENTOS</h4>
+                        <p><strong>Art. 75.</strong> A EXPOCEI poderá conceder classificações por área, menções, certificados, medalhas, troféus, bolsas, benefícios e credenciamentos científicos, conforme disponibilidade e ato de premiação da edição.</p>
+                        <p><strong>Art. 76.</strong> A premiação por área poderá contemplar colocações do 1º ao 4º lugar, observada a pontuação final e a quantidade de projetos avaliados, sem prejuízo de reconhecimentos especiais definidos pela Organização ou por instituições parceiras.</p>
+                        <p><strong>Art. 77.</strong> Prêmios patrocinados ou especiais poderão possuir critérios de elegibilidade próprios, previamente informados, e avaliação adicional por comissão específica.</p>
+                        <p><strong>Art. 78.</strong> Credenciamentos para eventos externos serão concedidos somente a projetos que atendam integralmente às regras do evento destinatário, inclusive idade, escolaridade, composição de equipe, documentação, período de pesquisa, autoria, segurança e disponibilidade de vagas.</p>
+                        <p class="pl-4 border-l-2 border-slate-300 text-xs sm:text-sm text-slate-600"><em>Parágrafo único.</em> A concessão de credencial não implica custeio de inscrição, transporte, hospedagem, alimentação ou documentação, salvo quando o instrumento de premiação declarar expressamente a cobertura correspondente.</p>
+                    </div>
+
+                    <!-- PARTE IX -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">PARTE IX — PROTEÇÃO DE DADOS, IMAGEM E PROPRIEDADE INTELECTUAL</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO XVI — TRATAMENTO DE DADOS PESSOAIS</h4>
+                        <p><strong>Art. 79.</strong> O tratamento de dados pessoais pela EXPOCEI observará a Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais), limitando-se ao necessário para inscrição, elegibilidade, contato, revisão, seleção, credenciamento, avaliação, certificação, premiação, segurança, prestação de contas e demais finalidades legítimas do evento.</p>
+                        <p><strong>Art. 80.</strong> Serão observados, entre outros, os princípios de finalidade, adequação, necessidade, livre acesso, qualidade, transparência, segurança, prevenção, não discriminação e responsabilização.</p>
+                        <p><strong>Art. 81.</strong> O tratamento de dados de crianças e adolescentes deverá priorizar seu melhor interesse e adotar salvaguardas adequadas, inclusive participação do responsável legal nas hipóteses previstas em lei.</p>
+                        <p><strong>Art. 82.</strong> A Organização poderá utilizar dados agregados ou anonimizados para fins estatísticos, institucionais e de prestação de contas, sem exposição indevida de titulares.</p>
+                        <p><strong>Art. 83.</strong> A captação e divulgação de imagem e voz em atividades presenciais dependerão da base legal ou autorização aplicável, observadas as informações prestadas nos termos de participação e os direitos dos titulares.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO XVII — PROPRIEDADE INTELECTUAL E PUBLICIDADE CIENTÍFICA</h4>
+                        <p><strong>Art. 84.</strong> A inscrição não transfere à EXPOCEI titularidade sobre invenções, software, desenho, obra, marca, segredo de negócio ou outro ativo intelectual dos participantes.</p>
+                        <p><strong>Art. 85.</strong> Compete à equipe avaliar, antes da exposição pública, a necessidade de proteção de criação suscetível de registro, patente ou sigilo, não respondendo a Organização por perda de novidade decorrente de divulgação voluntária ou necessária à própria mostra.</p>
+                        <p><strong>Art. 86.</strong> Os participantes são responsáveis por obter autorização para uso de materiais de terceiros e por respeitar direitos autorais, licenças de software, direitos de imagem e demais direitos incidentes sobre o conteúdo apresentado.</p>
+                    </div>
+
+                    <!-- PARTE X -->
+                    <div class="space-y-3 pt-4 border-t border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">PARTE X — INFRAÇÕES, SANÇÕES E DISPOSIÇÕES FINAIS</h3>
+                        
+                        <h4 class="font-bold text-brand-navy">CAPÍTULO XVIII — INFRAÇÕES E MEDIDAS ADMINISTRATIVAS</h4>
+                        <p><strong>Art. 87.</strong> O descumprimento deste Regulamento poderá resultar, conforme gravidade, extensão, dolo, risco e momento da constatação, em orientação corretiva, advertência, retirada de material, perda de pontuação, inabilitação, desclassificação, cancelamento de premiação ou revogação de credenciamento.</p>
+                        <p><strong>Art. 88.</strong> Constituem hipóteses especialmente graves: fraude cadastral; falsa autoria; plágio; fabricação ou falsificação de dados; uso indevido de inteligência artificial; violação de segurança; omissão de risco; documento falsificado; interferência de terceiro na defesa; assédio ou discriminação; dano intencional a outro projeto; e descumprimento deliberado de determinação do Comitê Científico ou da Comissão de Segurança.</p>
+                        <p><strong>Art. 89.</strong> Sempre que a natureza do caso permitir, o participante será cientificado da irregularidade e poderá apresentar esclarecimento ou documento de defesa antes da decisão final, ressalvadas medidas imediatas de segurança e hipóteses de fraude manifesta.</p>
+                        <p><strong>Art. 90.</strong> A irregularidade descoberta após a premiação ou concessão de credencial poderá produzir revisão do resultado, cancelamento do benefício e comunicação à instituição destinatária, quando necessária à correção do registro.</p>
+
+                        <h4 class="font-bold text-brand-navy pt-2">CAPÍTULO XIX — RESPONSABILIDADE, FORÇA MAIOR E CASOS OMISSOS</h4>
+                        <p><strong>Art. 91.</strong> Os participantes são responsáveis por seus equipamentos, objetos pessoais, protótipos e materiais de exposição, observadas as condições de segurança e apoio disponibilizadas pela Organização.</p>
+                        <p><strong>Art. 92.</strong> A Comissão Organizadora poderá modificar datas, horários, local, procedimentos e regras operacionais por motivo de segurança, força maior, caso fortuito, indisponibilidade técnica, determinação de autoridade competente ou necessidade relevante de organização, assegurada divulgação pelos canais oficiais.</p>
+                        <p><strong>Art. 93.</strong> Situações omissas serão resolvidas pela Comissão Organizadora, ouvidos os órgãos técnicos competentes quando necessário, com base na finalidade educacional, integridade científica, segurança, isonomia, razoabilidade, proteção de menores e legislação aplicável.</p>
+                        <p><strong>Art. 94.</strong> Este Regulamento entra em vigor na data de sua publicação e permanecerá aplicável até sua revisão ou substituição por versão posterior.</p>
+                    </div>
+
+                    <!-- ANEXO I -->
+                    <div class="space-y-3 pt-6 border-t-2 border-slate-200">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">ANEXO I — ÁREAS E SUBÁREAS DE PESQUISA</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 bg-slate-100 p-3 rounded-lg border border-slate-200">
+                            <strong>Nota de enquadramento:</strong> As subáreas funcionam como referência classificatória. Projetos que não se ajustem perfeitamente a uma subárea poderão ser enquadrados em "Outras", desde que a área principal esteja adequadamente definida. Em projeto multidisciplinar, deverá ser escolhida a subárea que melhor represente o núcleo metodológico e o objeto predominante da investigação.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm pt-2">
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">1. Biologia Celular e Molecular, Microbiologia (BCMM)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Biologia molecular e celular</li><li>Genética</li><li>Imunologia</li><li>Antibióticos</li><li>Antimicrobianos</li><li>Bacteriologia</li><li>Virologia</li><li>Micologia</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">2. Bioquímica e Química (BIOQ)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Bioquímica geral</li><li>Bioquímica estrutural</li><li>Química orgânica</li><li>Química inorgânica</li><li>Química analítica</li><li>Química computacional</li><li>Físico-química</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">3. Ciências Ambientais (CA)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Poluição e qualidade do ar</li><li>Poluição e qualidade da água</li><li>Contaminação e qualidade do solo</li><li>Toxicologia ambiental</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">4. Ciências Animais e de Plantas (CAP)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Desenvolvimento biológico animal</li><li>Ecologia</li><li>Criação de animais</li><li>Fisiologia e patologia animal</li><li>Agricultura/Agronomia</li><li>Morfologia e desenvolvimento das plantas</li><li>Fisiologia das plantas</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">5. Ciências da Computação (CC)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Engenharia da Computação</li><li>Algoritmos e bases de dados</li><li>Inteligência Artificial</li><li>Comunicação e redes</li><li>Ciência Computacional</li><li>Engenharia de Software</li><li>Linguagens de Programação</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">6. Ciências da Terra, Matemática, Física e Astronomia (CTMFA)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Climatologia / Meteorologia</li><li>Geoquímica / Geofísica</li><li>Mineralogia / Paleontologia / Geologia</li><li>Matemática analítica e aplicada</li><li>Álgebra / Geometria / Cálculo</li><li>Probabilidade e Estatística</li><li>Física teórica, nuclear e de partículas</li><li>Magnetismo / Óptica / Acústica</li><li>Astronomia e Ciências planetárias</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">7. Ciências Sociais (CS)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Sociologia</li><li>Antropologia</li><li>Política</li><li>Economia</li><li>Administração</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">8. Educação e Humanidades (EDUH)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Educação</li><li>Linguística</li><li>Expressão Artística</li><li>Filosofia e Teologia</li><li>Psicologia</li><li>História</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">9. Engenharia Ambiental e Sanitária (EAMB)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Biorremediação</li><li>Gerenciamento de ecossistemas</li><li>Recursos hídricos, florestais e resíduos</li><li>Política e Legislação ambiental</li><li>Educação ambiental</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">10. Engenharia e Ciências dos Materiais (EMAT)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Engenharia dos Transportes e Aeroespacial</li><li>Engenharia Civil e Construção</li><li>Engenharia de Segurança</li><li>Desenvolvimento de produtos</li><li>Ciência dos Materiais</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">11. Engenharia Elétrica (EEL)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Elétrica Geral</li><li>Geração, transmissão e transformação</li><li>Energias Renováveis</li><li>Smart Grids e Sistemas Embarcados</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">12. Engenharia Eletrônica (ETRO)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Eletrônica Geral</li><li>Sistemas e Processos Eletrônicos</li><li>Sistemas de Comunicação</li><li>Automação Industrial e Robótica</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">13. Engenharia Mecânica (EMECA)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Mecânica Geral</li><li>Engenharia Industrial</li><li>Desenvolvimento de veículos</li><li>Desenvolvimento de produtos e processos</li><li>Outras</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
+                                <h5 class="font-bold text-brand-navy">14. Ciências da Saúde (SAU)</h5>
+                                <ul class="list-disc pl-5 mt-1 text-slate-600 space-y-0.5">
+                                    <li>Diagnóstico, tratamento e Epidemiologia</li><li>Fisiologia e Genética</li><li>Saúde no Trabalho, Prevenção e Nutrição</li><li>Enfermagem, Odontologia e Educação Física</li><li>Biomedicina e Biomateriais</li><li>Outras</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ANEXO II -->
+                    <div class="space-y-3 pt-6 border-t border-slate-200">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">ANEXO II — DOCUMENTOS MÍNIMOS DO CICLO DE PARTICIPAÇÃO</h3>
+                        <ol class="list-decimal pl-6 space-y-1.5 text-xs sm:text-sm">
+                            <li>Cadastro eletrônico completo da equipe e da instituição de ensino.</li>
+                            <li>Plano de Pesquisa.</li>
+                            <li>Resumo do projeto.</li>
+                            <li>Termos de participação, responsabilidade, autorizações e proteção de dados aplicáveis.</li>
+                            <li>Formulário de Revisão Científica e Segurança.</li>
+                            <li>Formulários complementares exigidos pela natureza do projeto.</li>
+                            <li>Caderno de Campo atualizado e disponível para conferência.</li>
+                            <li>Relatório de Pesquisa, quando exigido no cronograma.</li>
+                            <li>Material de exposição presencial, conforme Manual do Expositor.</li>
+                        </ol>
+                    </div>
+
+                    <!-- ANEXO III -->
+                    <div class="space-y-3 pt-6 border-t border-slate-200">
+                        <h3 class="text-lg font-bold text-brand-green uppercase tracking-wide">ANEXO III — DISPOSIÇÃO SOBRE RESULTADO E PRIVACIDADE</h3>
+                        <p class="text-xs sm:text-sm text-slate-600">
+                            A EXPOCEI adotará comunicação individualizada dos resultados por e-mail e poderá utilizar códigos de protocolo em divulgações públicas. A opção de não publicar listas nominais de estudantes menores de idade constitui medida de governança e minimização de dados, compatível com a Lei nº 13.709/2018 e com o Estatuto da Criança e do Adolescente, sem impedir divulgação institucional autorizada, certificação ou comunicação necessária a parceiros e eventos destinatários de credenciais, quando houver base legal e finalidade legítima.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ CLEAN -->
+    <footer class="border-t border-slate-200 py-6 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 font-medium">
+            <p data-texto="global.footer">© ExpoCEI — Exposição Municipal de Ciências, Engenharia e Inovação. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script>
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('invisible', 'opacity-0');
+                overlay.classList.add('opacity-100');
+                btn.classList.add('menu-open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            if (drawer) drawer.classList.add('translate-x-full');
+            if (overlay) {
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0', 'invisible');
+            }
+            if (btn) btn.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <script src="../textos.js"></script>
+    <script src="../carregar-textos.js"></script>
+</body>
+</html>

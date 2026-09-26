@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-texto="programacao.pageTitle">Programação - ExpoCEI 2027</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                },
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#042751',
+                            blue: '#086EC3',
+                            lime: '#5B9E20',
+                            green: '#1F842C',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .header-glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .header-glass.scrolled {
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            box-shadow: 0 4px 20px -5px rgba(4, 39, 81, 0.08);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link.active {
+            color: #042751;
+            font-weight: 700;
+            background-color: rgba(8, 110, 195, 0.12);
+        }
+
+        .bg-grid-pattern {
+            background-size: 36px 36px;
+            background-image: radial-gradient(circle, rgba(8, 110, 195, 0.08) 1px, transparent 1px);
+        }
+
+        .hamburger-line {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .menu-open .line-1 {
+            transform: translateY(5px) rotate(45deg);
+        }
+
+        .menu-open .line-2 {
+            opacity: 0;
+        }
+
+        .menu-open .line-3 {
+            transform: translateY(-5px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-brand-blue/20 selection:text-brand-blue">
+
+    <!-- CABEÇALHO DA PÁGINA -->
+    <header id="main-header" class="header-glass sticky top-0 z-50 w-full bg-white/90 border-b border-slate-200/80 py-3.5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between gap-4">
+                
+                <a href="../index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-blue/50 rounded-xl p-1">
+                    <img 
+                        src="../logo.jpeg" 
+                        alt="Logo ExpoCEI" 
+                        class="h-10 sm:h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                    >
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-base sm:text-lg tracking-tight text-brand-navy leading-tight group-hover:text-brand-blue transition-colors" data-texto="global.sigla">
+                            ExpoCEI
+                        </span>
+                        <span class="text-[10px] sm:text-xs text-brand-blue font-semibold leading-none hidden sm:block" data-texto="global.nome">
+                            Exposição de Ciência, Engenharia e Inovação
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegação Desktop (Estrutura igual à segunda foto) -->
+                <nav class="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70">
+                    <a href="../index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inicio">Início</a>
+                    <a href="../sobre/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.sobre">Sobre</a>
+                    <a href="../areas/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.areas">Áreas da Feira</a>
+                    <a href="../inscricoes/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inscricoes">Inscrições</a>
+                    <a href="../regulamento/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.regulamento">Regulamento</a>
+                    <a href="index.html" class="nav-link active px-3.5 py-1.5 text-xs font-bold rounded-full transition-colors" data-texto="nav.programacao">Programação</a>
+                    <a href="../premiacao/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.premiacao">Premiação</a>
+                    <a href="../contato/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.contato">Contato</a>
+                </nav>
+
+                <div class="flex items-center gap-2">
+                    <button 
+                        id="mobile-menu-btn" 
+                        onclick="toggleMobileMenu()" 
+                        type="button" 
+                        aria-label="Menu Principal" 
+                        class="xl:hidden p-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue flex flex-col justify-center items-center gap-1 w-10 h-10 transition-colors"
+                    >
+                        <span class="hamburger-line line-1 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-2 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-3 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE SLIDE-OVER -->
+    <div id="mobile-overlay" onclick="closeMobileMenu()" class="fixed inset-0 bg-brand-navy/40 backdrop-blur-sm z-50 opacity-0 invisible transition-all duration-300 xl:hidden"></div>
+
+    <aside id="mobile-drawer" class="fixed top-0 right-0 h-full w-80 bg-white border-l border-slate-200 z-50 transform translate-x-full transition-transform duration-300 ease-in-out xl:hidden flex flex-col justify-between p-6 shadow-2xl">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div class="flex items-center gap-2">
+                    <img src="../logo.jpeg" alt="ExpoCEI" class="h-7 w-auto rounded">
+                    <span class="font-bold text-sm tracking-tight text-brand-navy" data-texto="global.sigla">ExpoCEI</span>
+                </div>
+                <button onclick="closeMobileMenu()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <nav class="flex flex-col space-y-1.5">
+                <a href="../index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inicio">Início</a>
+                <a href="../sobre/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.sobre">Sobre</a>
+                <a href="../areas/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.areas">Áreas da Feira</a>
+                <a href="../inscricoes/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inscricoes">Inscrições</a>
+                <a href="../regulamento/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.regulamento">Regulamento</a>
+                <a href="index.html" class="px-3.5 py-2.5 text-sm font-bold text-brand-navy bg-brand-blue/10 rounded-xl" data-texto="nav.programacao">Programação</a>
+                <a href="../premiacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.premiacao">Premiação</a>
+                <a href="../contato/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.contato">Contato</a>
+            </nav>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 text-center font-medium" data-texto="global.mobileFooter">
+            ExpoCEI 2027
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow relative overflow-hidden bg-grid-pattern py-12 sm:py-16">
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <!-- Cabeçalho da Página -->
+            <div class="text-center sm:text-left">
+                <span class="inline-block px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-brand-blue bg-brand-blue/10 rounded-full mb-3">
+                    Cronograma Oficial
+                </span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-brand-navy tracking-tight" data-texto="programacao.titulo">
+                    Principais Datas
+                </h1>
+                <p class="mt-2 text-base text-slate-600 max-w-3xl" data-texto="programacao.subtitulo">
+                    Confira as principais etapas do calendário oficial, desde o período de inscrições até a cerimônia final de premiação.
+                </p>
+            </div>
+
+            <!-- SEÇÃO PRINCIPAIS DATAS -->
+            <div class="space-y-6">
+                <h2 class="text-2xl font-bold text-brand-navy flex items-center gap-2">
+                    <i class="fa-regular fa-calendar-check text-brand-blue"></i>
+                    <span>Calendário de Eventos</span>
+                </h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <!-- INSCRIÇÕES -->
+                    <div class="bg-white/90 backdrop-blur-md border border-emerald-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between hover:border-emerald-500 transition-all group">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="w-3.5 h-3.5 rounded-full bg-emerald-500 inline-block"></span>
+                                <span class="inline-block px-2.5 py-1 text-xs font-extrabold text-emerald-800 bg-emerald-100 rounded-lg group-hover:bg-emerald-500 group-hover:text-white transition-colors">Até 15/05/2027</span>
+                            </div>
+                            <h3 class="font-bold text-brand-navy text-base mb-1">Inscrições</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Prazo limite para submissão dos projetos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- DIVULGAÇÃO DOS PROJETOS SELECIONADOS -->
+                    <div class="bg-white/90 backdrop-blur-md border border-sky-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between hover:border-sky-500 transition-all group">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="w-3.5 h-3.5 rounded-full bg-sky-500 inline-block"></span>
+                                <span class="inline-block px-2.5 py-1 text-xs font-extrabold text-sky-800 bg-sky-100 rounded-lg group-hover:bg-sky-500 group-hover:text-white transition-colors">30/06/2027</span>
+                            </div>
+                            <h3 class="font-bold text-brand-navy text-base mb-1">Divulgação dos Selecionados</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Anúncio oficial dos projetos qualificados para a exposição.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- REALIZAÇÃO DA EXPOCEI -->
+                    <div class="bg-white/90 backdrop-blur-md border border-amber-200 rounded-2xl p-5 shadow-sm flex flex-col justify-between hover:border-amber-500 transition-all group">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="w-3.5 h-3.5 rounded-full bg-amber-500 inline-block"></span>
+                                <span class="inline-block px-2.5 py-1 text-xs font-extrabold text-amber-800 bg-amber-100 rounded-lg group-hover:bg-amber-500 group-hover:text-white transition-colors">10 a 12/09/2027</span>
+                            </div>
+                            <h3 class="font-bold text-brand-navy text-base mb-1">Realização da ExpoCEI</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Período de realização da feira e avaliações.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CERIMÔNIA DE PREMIAÇÃO -->
+                    <div class="bg-amber-500/10 backdrop-blur-md border border-amber-300 rounded-2xl p-5 shadow-sm flex flex-col justify-between hover:border-amber-500 transition-all group">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="w-3.5 h-3.5 rounded-full bg-amber-400 inline-block"></span>
+                                <span class="inline-block px-2.5 py-1 text-xs font-extrabold text-amber-900 bg-amber-200/80 rounded-lg group-hover:bg-amber-500 group-hover:text-white transition-colors">12/09/2027</span>
+                            </div>
+                            <h3 class="font-bold text-brand-navy text-base mb-1">Cerimônia de Premiação</h3>
+                            <p class="text-xs text-slate-700 leading-relaxed">
+                                Celebração final e entrega de prêmios aos vencedores.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CARD INFORMATIVO -->
+            <div class="bg-white/80 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-sm space-y-4">
+                <div class="flex items-center gap-3 text-brand-blue">
+                    <i class="fa-solid fa-circle-info text-2xl"></i>
+                    <h2 class="text-xl font-bold text-brand-navy">Informações Gerais</h2>
+                </div>
+                <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                    A ExpoCEI ocorrerá de 10 a 12 de setembro de 2027[cite: 6]. Todas as orientações sobre horários, locais específicos e acesso serão enviadas diretamente aos representantes dos projetos selecionados após a divulgação dos resultados em 30/06/2027[cite: 6].
+                </p>
+            </div>
+
+            <!-- RESSALVA FINAL -->
+            <div class="bg-slate-100/80 border border-slate-200/80 rounded-2xl p-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p>
+                    A programação oficial poderá sofrer eventuais ajustes em razão do fluxo de inscrições ou por necessidades operacionais da comissão organizadora. Quaisquer alterações serão atualizadas nesta página e informadas nos canais oficiais.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ CLEAN -->
+    <footer class="border-t border-slate-200 py-6 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 font-medium">
+            <p data-texto="global.footer">© ExpoCEI — Exposição de Ciência, Engenharia e Inovação. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script>
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('invisible', 'opacity-0');
+                overlay.classList.add('opacity-100');
+                btn.classList.add('menu-open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            drawer.classList.add('translate-x-full');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'invisible');
+            btn.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <script src="../textos.js"></script>
+    <script src="../carregar-textos.js"></script>
+</body>
+</html>

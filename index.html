@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-texto="home.title">ExpoCEI - Exposição Municipal de Ciências, Engenharia e Inovação</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                },
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#01326A',
+                            blue: '#01326A',
+                            green: '#027B38',
+                            lime: '#027B38',
+                            orange: '#F58402'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .header-glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .header-glass.scrolled {
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            box-shadow: 0 4px 20px -5px rgba(1, 50, 106, 0.08);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link.active {
+            color: #01326A;
+            font-weight: 700;
+            background-color: rgba(1, 50, 106, 0.08);
+        }
+
+        .bg-grid-pattern {
+            background-size: 36px 36px;
+            background-image: radial-gradient(circle, rgba(1, 50, 106, 0.08) 1px, transparent 1px);
+        }
+
+        .hamburger-line {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .menu-open .line-1 {
+            transform: translateY(5px) rotate(45deg);
+        }
+
+        .menu-open .line-2 {
+            opacity: 0;
+        }
+
+        .menu-open .line-3 {
+            transform: translateY(-5px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-brand-blue/20 selection:text-brand-blue">
+
+    <!-- CABEÇALHO ExpoCEI -->
+    <header id="main-header" class="header-glass sticky top-0 z-50 w-full bg-white/90 border-b border-slate-200/80 py-3.5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between gap-4">
+                
+                <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-blue/50 rounded-xl p-1">
+                    <img 
+                        src="logo.jpeg" 
+                        alt="Logo ExpoCEI" 
+                        class="h-10 sm:h-11 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                    >
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-base sm:text-lg tracking-tight text-brand-navy leading-tight group-hover:text-brand-orange transition-colors" data-texto="global.sigla">
+                            ExpoCEI
+                        </span>
+                        <span class="text-[10px] sm:text-xs text-brand-blue font-semibold leading-none hidden sm:block" data-texto="global.nome">
+                            Exposição Municipal de Ciências, Engenharia e Inovação
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70">
+                    <a href="index.html" class="nav-link active px-3.5 py-1.5 text-xs font-semibold rounded-full transition-colors" data-texto="nav.inicio">
+                        Início
+                    </a>
+                    <a href="sobre/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.sobre">
+                        Sobre
+                    </a>
+                    <a href="areas/index.html" class="nav-link px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.areasFeira">
+                        Áreas da Feira
+                    </a>
+                    <a href="inscricoes/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.inscricoes">
+                        Inscrições
+                    </a>
+                    <a href="regulamento/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.regulamento">
+                        Regulamento
+                    </a>
+                    <a href="programacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.programacao">
+                        Programação
+                    </a>
+                    <a href="premiacao/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.premiacao">
+                        Premiação
+                    </a>
+                    <a href="contato/index.html" class="nav-link px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-200/60 rounded-full transition-colors" data-texto="nav.contato">
+                        Contato
+                    </a>
+                </nav>
+
+                <div class="flex items-center gap-2">
+                    <button 
+                        id="mobile-menu-btn" 
+                        onclick="toggleMobileMenu()" 
+                        type="button" 
+                        aria-label="Menu Principal" 
+                        class="xl:hidden p-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue flex flex-col justify-center items-center gap-1 w-10 h-10 transition-colors"
+                    >
+                        <span class="hamburger-line line-1 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-2 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                        <span class="hamburger-line line-3 w-4 h-0.5 bg-slate-700 rounded-full"></span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE SLIDE-OVER -->
+    <div id="mobile-overlay" onclick="closeMobileMenu()" class="fixed inset-0 bg-brand-navy/40 backdrop-blur-sm z-50 opacity-0 invisible transition-all duration-300 xl:hidden"></div>
+
+    <aside id="mobile-drawer" class="fixed top-0 right-0 h-full w-80 bg-white border-l border-slate-200 z-50 transform translate-x-full transition-transform duration-300 ease-in-out xl:hidden flex flex-col justify-between p-6 shadow-2xl">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div class="flex items-center gap-2">
+                    <img src="logo.jpeg" alt="ExpoCEI" class="h-7 w-auto rounded">
+                    <span class="font-bold text-sm tracking-tight text-brand-navy" data-texto="global.sigla">ExpoCEI</span>
+                </div>
+                <button onclick="closeMobileMenu()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <nav class="flex flex-col space-y-1.5">
+                <a href="index.html" class="px-3.5 py-2.5 text-sm font-bold text-brand-blue bg-brand-blue/10 rounded-xl" data-texto="nav.inicio">Início</a>
+                <a href="sobre/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.sobre">Sobre</a>
+                <a href="areas/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.areasFeira">Áreas da Feira</a>
+                <a href="inscricoes/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.inscricoes">Inscrições</a>
+                <a href="regulamento/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.regulamento">Regulamento</a>
+                <a href="programacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.programacao">Programação</a>
+                <a href="premiacao/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.premiacao">Premiação</a>
+                <a href="contato/index.html" class="px-3.5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-blue rounded-xl transition-colors" data-texto="nav.contato">Contato</a>
+            </nav>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 text-center font-medium" data-texto="global.mobileFooter">
+            ExpoCEI • Exposição Municipal de Ciências, Engenharia e Inovação
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT / HERO SECTION -->
+    <main class="flex-grow relative flex items-center justify-center overflow-hidden bg-grid-pattern">
+        
+        <!-- SVG ERLENMEYER, ÁTOMOS E BOLHAS -->
+        <svg 
+            id="science-bg"
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 600 600" 
+            class="hidden lg:block absolute top-1/2 -translate-y-1/2 -left-12 w-[480px] xl:w-[580px] 2xl:w-[650px] h-auto opacity-25 pointer-events-none select-none z-0"
+            aria-hidden="true"
+        >
+            <defs>
+                <linearGradient id="flaskLiquid" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#027B38" stop-opacity="0.8"/>
+                    <stop offset="50%" stop-color="#01326A" stop-opacity="0.85"/>
+                    <stop offset="100%" stop-color="#F58402" stop-opacity="0.8"/>
+                </linearGradient>
+
+                <linearGradient id="flaskStroke" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#01326A"/>
+                    <stop offset="100%" stop-color="#027B38"/>
+                </linearGradient>
+
+                <style>
+                    @keyframes floatBubble1 {
+                        0% { transform: translateY(0px) scale(0.8); opacity: 0; }
+                        50% { opacity: 0.9; }
+                        100% { transform: translateY(-140px) scale(1.2); opacity: 0; }
+                    }
+                    @keyframes floatBubble2 {
+                        0% { transform: translateY(0px) scale(0.9); opacity: 0; }
+                        40% { opacity: 0.8; }
+                        100% { transform: translateY(-180px) scale(1.4); opacity: 0; }
+                    }
+                    @keyframes floatBubble3 {
+                        0% { transform: translateY(0px) scale(0.7); opacity: 0; }
+                        60% { opacity: 1; }
+                        100% { transform: translateY(-120px) scale(1.1); opacity: 0; }
+                    }
+                    @keyframes rotateAtom {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                    @keyframes pulseLiquid {
+                        0%, 100% { transform: scaleY(1); }
+                        50% { transform: scaleY(1.03); }
+                    }
+                    @keyframes floatSoft {
+                        0%, 100% { transform: translateY(0px); }
+                        50% { transform: translateY(-10px); }
+                    }
+
+                    .b1 { animation: floatBubble1 4s ease-in-out infinite; transform-origin: center; }
+                    .b2 { animation: floatBubble2 5.5s ease-in-out infinite 1.2s; transform-origin: center; }
+                    .b3 { animation: floatBubble3 3.8s ease-in-out infinite 2.1s; transform-origin: center; }
+                    .b4 { animation: floatBubble1 6s ease-in-out infinite 0.5s; transform-origin: center; }
+                    .b5 { animation: floatBubble2 4.5s ease-in-out infinite 2.8s; transform-origin: center; }
+
+                    .atom-rotate-1 { animation: rotateAtom 12s linear infinite; transform-origin: 440px 150px; }
+                    .atom-rotate-2 { animation: rotateAtom 16s linear infinite reverse; transform-origin: 120px 140px; }
+                    
+                    .flask-anim { animation: floatSoft 6s ease-in-out infinite; transform-origin: center; }
+                    .liquid-wave { animation: pulseLiquid 3s ease-in-out infinite; transform-origin: bottom; }
+                </style>
+            </defs>
+
+            <!-- ÁTOMO 1 -->
+            <g class="atom-rotate-1">
+                <ellipse cx="440" cy="150" rx="65" ry="22" stroke="#01326A" stroke-width="2.5" fill="none" transform="rotate(30 440 150)"/>
+                <ellipse cx="440" cy="150" rx="65" ry="22" stroke="#027B38" stroke-width="2.5" fill="none" transform="rotate(-30 440 150)"/>
+                <ellipse cx="440" cy="150" rx="65" ry="22" stroke="#F58402" stroke-width="2.5" fill="none" transform="rotate(90 440 150)"/>
+                <circle cx="440" cy="150" r="10" fill="#01326A"/>
+                <circle cx="495" cy="120" r="5" fill="#F58402"/>
+                <circle cx="385" cy="180" r="5" fill="#027B38"/>
+            </g>
+
+            <!-- ÁTOMO 2 -->
+            <g class="atom-rotate-2" opacity="0.7">
+                <ellipse cx="120" cy="140" rx="45" ry="15" stroke="#F58402" stroke-width="2" fill="none" transform="rotate(45 120 140)"/>
+                <ellipse cx="120" cy="140" rx="45" ry="15" stroke="#01326A" stroke-width="2" fill="none" transform="rotate(-45 120 140)"/>
+                <circle cx="120" cy="140" r="7" fill="#027B38"/>
+            </g>
+
+            <!-- FRASCO ERLENMEYER -->
+            <g class="flask-anim">
+                <ellipse cx="280" cy="485" rx="110" ry="14" fill="#01326A" opacity="0.15"/>
+                <path d="M 250,180 L 250,230 L 150,430 C 135,460 160,480 195,480 L 365,480 C 400,480 425,460 410,430 L 310,230 L 310,180 Z" 
+                      fill="none" stroke="url(#flaskStroke)" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+                <rect x="240" y="170" width="80" height="12" rx="6" fill="#01326A"/>
+                <path class="liquid-wave" d="M 172,435 C 210,420 250,445 280,430 C 320,415 350,440 388,435 L 398,455 C 405,468 390,475 365,475 L 195,475 C 170,475 155,468 162,455 Z" 
+                      fill="url(#flaskLiquid)"/>
+                <path d="M 175,420 L 258,255" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+            </g>
+
+            <!-- BOLHAS -->
+            <g id="bubbles">
+                <circle class="b1" cx="280" cy="170" r="14" fill="#F58402"/>
+                <circle class="b4" cx="260" cy="150" r="8" fill="#F58402"/>
+                <circle class="b2" cx="295" cy="160" r="18" fill="#027B38"/>
+                <circle class="b5" cx="310" cy="130" r="10" fill="#027B38"/>
+                <circle class="b3" cx="270" cy="180" r="12" fill="#01326A"/>
+                <circle class="b1" cx="300" cy="120" r="6" fill="#01326A"/>
+                <circle class="b2" cx="180" cy="260" r="16" fill="#F58402" opacity="0.6"/>
+                <circle class="b3" cx="380" cy="280" r="22" fill="#027B38" opacity="0.5"/>
+                <circle class="b5" cx="420" cy="200" r="12" fill="#01326A" opacity="0.7"/>
+            </g>
+
+            <!-- MOLÉCULAS -->
+            <g opacity="0.4">
+                <line x1="450" y1="360" x2="500" y2="400" stroke="#01326A" stroke-width="2" stroke-dasharray="4 4"/>
+                <circle cx="450" cy="360" r="6" fill="#01326A"/>
+                <circle cx="500" cy="400" r="8" fill="#027B38"/>
+                <line x1="100" y1="320" x2="140" y2="350" stroke="#F58402" stroke-width="2"/>
+                <circle cx="100" cy="320" r="7" fill="#F58402"/>
+                <circle cx="140" cy="350" r="5" fill="#01326A"/>
+            </g>
+        </svg>
+
+        <img 
+            src="logo.jpeg" 
+            alt="" 
+            aria-hidden="true" 
+            class="absolute -bottom-12 -right-12 sm:-bottom-16 sm:-right-16 w-80 sm:w-96 md:w-[500px] opacity-[0.08] pointer-events-none select-none z-0 object-contain"
+        >
+
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-brand-navy/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-brand-green/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-20 left-10 w-72 h-72 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 w-full">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+                <!-- COLUNA DA ESQUERDA -->
+                <div class="lg:col-span-7 text-left flex flex-col items-start justify-center">
+
+                    <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-extrabold tracking-tight text-brand-navy leading-none mb-4 select-none" data-texto="home.heroTitle">
+                        ExpoCEI
+                    </h1>
+
+                    <p class="text-lg sm:text-2xl font-medium text-slate-600 tracking-wide mb-8 leading-relaxed max-w-xl" data-texto="home.heroSubtitle">
+                        ciência, educação e inovação para um futuro melhor
+                    </p>
+
+                    <!-- DATAS E LOCAL -->
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-8 w-full max-w-xl">
+                        <div class="w-full sm:w-auto flex items-center gap-3 px-5 py-3 rounded-2xl bg-white border border-slate-200/90 shadow-sm backdrop-blur-md transition-all hover:border-brand-green hover:shadow-md">
+                            <div class="p-2.5 bg-brand-green/15 text-brand-green rounded-xl text-base font-bold">
+                                <i class="fa-regular fa-calendar-days"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-[10px] uppercase font-extrabold tracking-wider text-slate-400" data-texto="home.cardDataLabel">Data do Evento</span>
+                                <span class="text-xs sm:text-sm font-bold text-brand-navy" data-texto="home.cardDataValue">10 a 12 de setembro de 2027</span>
+                            </div>
+                        </div>
+
+                        <div class="w-full sm:w-auto flex items-center gap-3 px-5 py-3 rounded-2xl bg-white border border-slate-200/90 shadow-sm backdrop-blur-md transition-all hover:border-brand-orange hover:shadow-md">
+                            <div class="p-2.5 bg-brand-orange/15 text-brand-orange rounded-xl text-base font-bold">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-[10px] uppercase font-extrabold tracking-wider text-slate-400" data-texto="home.cardLocalLabel">Local do Evento</span>
+                                <span class="text-xs sm:text-sm font-bold text-brand-navy" data-texto="home.cardLocalValue">Centro de Eventos - Cidade/CE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botões Hero -->
+                    <div class="flex flex-col sm:flex-row items-center justify-start gap-3 w-full max-w-xl">
+                        <a 
+                            href="inscricoes/index.html" 
+                            class="w-full sm:w-auto px-6 py-3.5 text-sm font-bold text-white bg-brand-navy hover:bg-brand-orange rounded-xl shadow-lg shadow-brand-navy/25 hover:shadow-brand-orange/30 transition-all duration-200 active:scale-95 flex items-center justify-center gap-2"
+                        >
+                            <span data-texto="home.btnInscreva">Inscreva seu projeto</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+
+                        <a 
+                            href="areas/index.html" 
+                            class="w-full sm:w-auto px-6 py-3.5 text-sm font-bold text-white bg-brand-green hover:bg-brand-navy rounded-xl shadow-lg shadow-brand-green/20 transition-all duration-200 active:scale-95 flex items-center justify-center gap-2"
+                        >
+                            <i class="fa-solid fa-shapes text-xs"></i>
+                            <span>Áreas da Feira</span>
+                        </a>
+
+                        <a 
+                            href="regulamento/index.html" 
+                            class="w-full sm:w-auto px-5 py-3.5 text-sm font-bold text-brand-navy bg-white hover:bg-slate-100 border-2 border-brand-navy/20 hover:border-brand-navy rounded-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 shadow-sm"
+                        >
+                            <i class="fa-regular fa-file-lines text-xs text-brand-green"></i>
+                            <span data-texto="home.btnRegulamento">Regulamento</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- COLUNA DA DIREITA (CARDS) -->
+                <div class="lg:col-span-5 flex flex-col gap-4 w-full">
+
+                    <a href="inscricoes/index.html" class="block bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm hover:bg-brand-navy hover:border-brand-navy hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-brand-navy/10 text-brand-navy rounded-xl flex items-center justify-center shrink-0 group-hover:bg-white/20 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-user-graduate text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-base font-bold text-brand-navy group-hover:text-white transition-colors" data-texto="home.card1Titulo">Sou estudante</h3>
+                                    <p class="text-xs text-slate-500 group-hover:text-white/80 transition-colors leading-relaxed" data-texto="home.card1Descricao">Inscreva seu projeto e mostre sua inovação.</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-sm text-brand-navy group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </a>
+
+                    <a href="regulamento/index.html" class="block bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm hover:bg-brand-green hover:border-brand-green hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-brand-green/15 text-brand-green rounded-xl flex items-center justify-center shrink-0 group-hover:bg-white/20 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-chalkboard-user text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-base font-bold text-brand-navy group-hover:text-white transition-colors" data-texto="home.card2Titulo">Sou orientador</h3>
+                                    <p class="text-xs text-slate-500 group-hover:text-white/80 transition-colors leading-relaxed" data-texto="home.card2Descricao">Orientações e submissão de trabalhos.</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-sm text-brand-green group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </a>
+
+                    <a href="contato/index.html" class="block bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm hover:bg-brand-orange hover:border-brand-orange hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center shrink-0 group-hover:bg-white/20 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-clipboard-check text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-base font-bold text-brand-navy group-hover:text-white transition-colors" data-texto="home.card3Titulo">Sou avaliador</h3>
+                                    <p class="text-xs text-slate-500 group-hover:text-white/80 transition-colors leading-relaxed" data-texto="home.card3Descricao">Cadastre-se para compor a banca avaliadora.</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-sm text-brand-orange group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </a>
+
+                    <a href="programacao/index.html" class="block bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm hover:bg-brand-green hover:border-brand-green hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-brand-green/10 text-brand-green rounded-xl flex items-center justify-center shrink-0 group-hover:bg-white/20 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-eye text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-base font-bold text-brand-navy group-hover:text-white transition-colors" data-texto="home.card4Titulo">Quero visitar</h3>
+                                    <p class="text-xs text-slate-500 group-hover:text-white/80 transition-colors leading-relaxed" data-texto="home.card4Descricao">Confira a programação aberta ao público.</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-sm text-brand-green group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <!-- RODAPÉ CLEAN -->
+    <footer class="border-t border-slate-200 py-6 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 font-medium">
+            <p data-texto="global.footer">© 2027 ExpoCEI — Exposição Municipal de Ciências, Engenharia e Inovação. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script>
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('invisible', 'opacity-0');
+                overlay.classList.add('opacity-100');
+                btn.classList.add('menu-open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.getElementById('mobile-menu-btn');
+
+            drawer.classList.add('translate-x-full');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'invisible');
+            btn.classList.remove('menu-open');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <script src="textos.js"></script>
+    <script src="carregar-textos.js"></script>
+</body>
+</html>
